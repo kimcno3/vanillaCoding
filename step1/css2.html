@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <style>
+            /* 1. Type */
+            h1 {
+                color:blue;
+            }
+            /* 2. Class */
+            .thick {
+                font-weight: bold;
+            }
+            .alert {
+                color: red;
+            }
+            /* 3. ID */
+            #box {
+                background: green;
+            }
+            /* 4. Compound */
+            h1, h2, #box{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            /* 5. Descendent */
+            #nav li {
+                background: green;
+            }
+            /* 6. Child */
+            #list > li {
+                border: 1px solid black;
+            }
+            /* 7. Universal */
+            * {
+                color: orange;
+            }
+            /* 8. Attribute */
+            img[alt='cat'] {
+                border: 5px solid red;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 1. Type -->
+        <h1>Lorem ipsum</h1>
+        <!-- 2. Class -->
+        <!-- 다중 Class명 , 같은 이름의 Class를 여러 요소에 지정할 수 있다.-->
+        <span class="thick">I'm thick</span>
+        <p class="thick alert">Warning...</p>
+        <!-- 3. ID -->
+        <!-- ID는 웹페이지 내 하나의 요소에만 지정할 수 있다. -->
+        <div id="box">I'm a box</div>
+        <!-- 4. Compound -->
+        <h1>Heading</h1>
+        <h2>Subheading</h2>
+        <div id="box">I'm a box</div>
+        <!-- 5. Descendent -->
+        <ul id="nav">
+            <li>child</li>
+        </ul>
+        <!-- 6. Child -->
+        <ul id="list">
+            <li>child</li>
+            <li>child
+              <ul>
+                <li>grand child</li>
+              </ul>
+            </li>
+        </ul>
+        <!-- 7. Universal -->
+        <h5>Sub heading</h5>
+        <!-- 8. Attribute -->
+        <!-- 요소의 속성을 가지고 CSS 적용 -->
+        <img src="https://d2ph5fj80uercy.cloudfront.net/04/cat2939.jpg" alt="cat">
+    </body>
+</html>
