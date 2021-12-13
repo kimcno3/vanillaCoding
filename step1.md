@@ -4,8 +4,7 @@
 - [:pushpin: HTML의 기초](#pushpin-HTML의-기초)
 - [:pushpin: HTML에 이미지 추가하기](#pushpin-HTML에-이미지-추가하기)
 - [:pushpin: HTML 링크](#pushpin-HTML-링크)
-
-
+    - [:pushpin: HTML 태그 연습](https://github.com/kimcno3/vanillaCoding/blob/main/index.html)
 <br>
 
 ## :pushpin: 웹을 구성하는 뼈대, HTML
