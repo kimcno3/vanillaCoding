@@ -6,35 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>구글 페이지 클론 코드</title>
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .wrap {
+            display: flex;
+            flex-direction: column;
+            align-content: space-between;
+            height: 100%;
+        }
+        header .h1{
+            display: flex;
+            align-items: center;
+        }
+        header a {
+            padding: 5px;
+            margin: 15px;
+        }
+        header .h2{
+            display: inline-block;
+            flex-grow: 1;
+        }
+        header .h2 .h2-1{
+            display: block;
+        }
+        header  .h2  .h2-1 .h2-2{
+            display: flex;
+            justify-content: flex-end;
+        }
+        section {
+            display: inline-block;
+            width: fit-content;
+            margin: auto;
+        }
+        section article input{
+            display: flex;
+            margin: auto;
+        }
+        section .section-footer {
+            display: flex;
+            justify-content: center;
+        }
+        .wrap-footer{
+            display: flex;
+            flex-direction: column;
+            background-color: #f2f2f2;
+        }
+        .col-2 {
+            display: flex;
+            justify-content: space-evenly;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <div>Google 정보</div>
-        <div>스토어</div>
-        <div>Gmail</div>
-        <div>이미지</div>
-    </header>
-     <section>
+    <div class='wrap'>
         <header>
-            <img src="https://www.google.com/logos/doodles/2021/seasonal-holidays-2021-6753651837109324-6752733080595603-cst.gif" alt="구글 메인 이미지">
+            <div class='h1'>
+                <a href=''>Google 정보</a>
+                <a href=''>스토어</a>
+                <div class='h2'>
+                    <div class='h2-1'>
+                        <div class='h2-2'>
+                            <a href=''>Gmail</a>
+                            <a href=''>이미지</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </header>
-        <article>
-            <input type="text">
-        </article>
-        <footer>
-            <button>Google 검색</button>
-            <button>I'm Feeling Lucky</button>
-        </footer>
-     </section>
-     <footer>
-         <div>대한민국</div>
-         <div>광고</div>
-         <div>비즈니스</div>
-         <div>검색의 원리</div>
-         <div>개인정보처리방침</div>
-         <div>약관</div>
-         <div>설정</div>
-     </footer>
+         <section>
+            <header>
+                <img src="https://www.google.com/logos/doodles/2021/seasonal-holidays-2021-6753651837109324-6752733080595603-cst.gif" alt="구글 메인 이미지">
+            </header>
+            <article>
+                <input type="text">
+            </article>
+            <footer class="section-footer">
+                <button>Google 검색</button>
+                <button>I'm Feeling Lucky</button>
+            </footer>
+         </section>
+         <footer class='wrap-footer'>
+             <div class='col-1'>
+                <a>대한민국</a>
+             </div>
+             <div class='col-2'>
+                 <div>
+                    <a>광고</a>
+                    <a>비즈니스</a>
+                    <a>검색의 원리</a>
+                 </div>
+                 <div>
+                    <a>개인정보처리방침</a>
+                    <a>약관</a>
+                    <a>설정</a>
+                 </div>
+             </div>
+         </footer>
+    </div>
 </body>
 </html>
