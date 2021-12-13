@@ -3,7 +3,7 @@
 - [:pushpin: 웹을 구성하는 뼈대, HTML](#pushpin-웹을-구성하는-뼈대-HTML)
 - [:pushpin: HTML의 기초](#pushpin-HTML의-기초)
 - [:pushpin: HTML에 이미지 추가하기](#pushpin-HTML에-이미지-추가하기)
-- [:pushpin: HTML 링크](#-pushpin-HTML-링크)
+- [:pushpin: HTML 링크](#pushpin-HTML-링크)
 
 
 <br>
@@ -129,39 +129,51 @@ HTML 문서에 이미지를 추가할때 우리는 브라우저에게 어디서 
 ### 참고할 만한 자료
 - [Mozilla Developer Network img tag](https://developer.mozilla.org/ko/docs/Web/HTML/Element/img)
 
+<br>
+
 ## :pushpin: HTML 링크
-HTML 링크
+### HTML 링크
 링크는 우리의 웹페이지와 다른 웹페이지들을 연결시켜 주는 역할을 합니다. 이런 연결 고리를 통해서 World Wide Web은 하나의 문서가 다른 문서로 이어지도록 구성되어 있습니다. 이번 학습 유닛에서는 링크가 어떤 식으로 만들어지는지 알아보도록 하겠습니다.
-링크
+
+### 링크
+```html
 <a href="https://www.vanillacoding.co">바닐라코딩 홈페이지</a>
-<a> 태그에는 href(Hypertext Reference)라고 부르는 속성을 줄 수 있고, 이 속성값은 어떤 웹페이지로 링크를 걸고 싶은지에 대한 정보를 추가하게 됩니다.
-​ 
+```
+`<a>` 태그에는 href(Hypertext Reference)라고 부르는 속성을 줄 수 있고, 이 속성값은 어떤 웹페이지로 링크를 걸고 싶은지에 대한 정보를 추가하게 됩니다.
+```html
 <a href="https://www.vanillacoding.co">
   <img src="logo.png" alt="바닐라코딩 로고">
 </a>
+```
 a 태그는 글씨나 이미지를 감쌀 수 있습니다. a 태그에 포함된 모든 요소는 웹페이지에서 사용자가 클릭할 수 있도록 만들어집니다.
+```html
 <a href="mailto:abc@abc.com">이메일 보내는 링크</a>
 <a href="tel:010-6666-6666">전화를 거는 링크</a>
+```
 href 값의 앞 부분에 특정 단어를 붙이게 되면 조금 더 특별한 기능들이 주어집니다. mailto:는 이메일을 보내는 프로그램으로 연결시켜 주고, tel:은 휴대폰 기기들이 전화를 걸도록 연결됩니다.
+```html
 <p id="toc">수업 목차</p>
 <a href="#toc">수업 목차로 이동하는 링크</a>
+```
 또한 우리는 같은 페이지에서 다른 위치로 이동하는 링크를 만들 수도 있습니다. id라는 속성을 만들어서 목적지 장소에 위치한 요소에 추가하고, 그리고 다른 위치에 있는 a 태그에 href 속성값을 #id(id 값에 알맞게 변경)으로 설정해주면 됩니다.
-​ 
-상대 경로와 절대 경로
+
+### 상대 경로와 절대 경로
 우리가 이동하고 싶은 위치는 두 가지 방법으로 표현할 수 있습니다.
-상대경로 (Relative)
-index.html
+#### **상대경로 (Relative)**
+`index.html`<br>
 상대경로란, 같은 파일 시스템 구조 상의 위치를 표현합니다.
-절대경로 (Absolute)
-https://google.com/index.html
+#### **절대경로 (Absolute)**
+`https://google.com/index.html`<br>
 절대경로란, 전체 인터넷을 기준으로 해당 자료의 위치를 표현합니다.
 만약 여러분의 웹사이트 내부의 자료로 연결하기를 원한다면 상대경로를 사용하는 편이 좋습니다. 그리고 외부 웹페이지로 연결하고자 한다면, 절대경로를 사용하시면 됩니다.
-요약
+
+### 요약
 우리는 우리 웹사이트 내부의 다른 컨텐츠나 외부 인터넷 자료로 연결할때 링크를 생성하곤 합니다. a 태그와 href 속성을 이용하여 링크를 생성할 수 있고, 상대경로나 절대경로를 연결되는 목적지의 위치를 표현할 수 있습니다.
-주요 개념
-a 태그와 href 속성
-상대경로 (Relative File Path)
-절대경로 (Absolute File Path)
-참고할 만한 자료
-​​
-이제 기본적인 웹페이지의 구성 방법에 대해 공부했으니, 웹페이지를 더욱 예쁘게 보여지도록 해주는 CSS에 대해 알아보겠습니다.
+
+### 주요 개념
+- a 태그와 href 속성
+- 상대경로 (Relative File Path)
+- 절대경로 (Absolute File Path)
+
+### 참고할 만한 자료
+- [Mozilla Developer Network a tag]()
