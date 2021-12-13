@@ -1,0 +1,199 @@
+<html>
+    <head>
+        <title>HTML & CSS</title>
+    </head>
+    <body>
+        <!-- 1-1 block elements -->
+        <style>
+            .container {
+                background-color: yellow;
+                width: 50%;
+                padding: 10px;
+            }
+
+            .one {
+                background-color: red;
+            }
+
+            .two {
+                background-color: blue;
+            }
+        </style>
+        <h3>1-1 block 특징</h3>
+        <p class="one">one</p><p class="two">two</p>
+        <h3>block 특징 - div 태그를 활용</h3>
+        <div class="container">
+            <p class="one">one</p>
+            <p class="two">two</p>
+        </div>
+
+        <!-- 1-2. Inline Elements -->
+        <style>
+            .container {
+                background-color: yellow;
+            }
+
+            .italic-text {
+                font-style: italic;
+                background-color: green;
+            }
+
+            .bold-text {
+                font-weight: bold;
+                background-color: green;
+            }
+        </style>
+        <h3>1-2 incline 특징</h3>
+        <div class="container">
+            <p><span class="italic-text">Hello</span> <span class="bold-text">Vanilla</span> Coding</p>
+        </div>
+
+        <!-- 2-1. Flex / 2.2 Incline block -->
+        <style>
+            /* 2-1. Flex */
+            .main {
+                /* Flex 적용 여부를 결정 */
+                /* display: flex; */
+            }
+
+            .code2-1 {
+                background: #000000;
+                color: #FFFFFF;
+                display: block;
+                padding: 25px;
+                text-align: center;
+            }
+
+            header,
+            section,
+            aside,
+            footer {
+                margin: 10px;
+            }
+
+            footer {
+                margin-bottom: 0;
+            }
+            section, aside {
+                /* incline Block 적용 여부 결정 */
+                /* display: inline-block; */
+            }
+        </style>
+        <h3>2-1~2. Flex & Incline Block 속성 특징</h3>
+        <header>
+            <code class='code2-1'>&#60;HEADER&#62;</code>
+        </header>
+        <div class="main">
+            <section>
+                <code class='code2-1'>&#60;SECTION&#62;</code>
+            </section>
+            <aside>
+                <code class='code2-1'>&#60;ASIDE&#62;</code>
+            </aside>
+        </div>
+        <footer>
+            <code class='code2-1'>&#60;FOOTER&#62;</code>
+        </footer>
+
+        <!-- 2-3 Position Property -->
+        <!-- a. relative -->
+        <style>
+            .code2-3a {
+                color: #FFFFFF;
+            }
+
+            .div2-3a, .relative-element .code2-3a {
+                border-radius: 5px;
+            }
+
+            .div2-3a {
+                background: #000000;
+                height: 62px;
+                padding-top: 38px;
+                text-align: center;
+                width: 100px;
+            }
+
+            .relative-element {
+                background: #FFFFFF;
+                border: 2px dashed red;
+                height: 100px;
+                padding: 0;
+            }
+
+            .relative-element .code2-3a {
+                background: blue;
+                color: #FFFFFF;
+                display: block;
+                height: 74px;
+                left: 20px;
+                padding-top: 26px;
+                position: relative;
+                text-align: center;
+                top: 20px;
+                width: 100px;
+            }
+        </style>
+        <h3>2-3 Position Property 특징</h3>
+        <h4>a.relative positioning</h4>
+        <div class='div2-3a'>
+            <code class='code2-3a'>&#60;div&#62;</code>
+        </div>
+        <div class="div2-3a relative-element">
+            <code class='code2-3a'>&#60;div class= <br> "relative-element"&#62;</code>
+        </div>
+        <div class='div2-3a'>
+            <code class='code2-3a'>&#60;div&#62;</code>
+        </div>
+
+        <!-- b. absolute -->
+        <style>
+        .code2-3b {
+            color: #FFFFFF;
+        }
+
+        section,
+        .absolute-element,
+        .absolute-element .code2-3b {
+            border-radius: 5px;
+            padding: 24px 30px;
+        }
+
+        section {
+            background: #000000;
+            height: 145px;
+            position: relative;
+        }
+
+        .absolute-element,
+        .absolute-element .code2-3b {
+            height: 96px;
+            position: absolute;
+            width: 160px;
+        }
+
+        .absolute-element {
+            border: 2px dashed red;
+            right: 0;
+            top: 0;
+        }
+
+        .absolute-element .code2-3b {
+            background: blue;
+            color: #FFFFFF;
+            display: block;
+            right: 20px;
+            top: 20px;
+        }
+
+        </style>
+        <h4>b. Absolute Positiong</h4>
+        <section>
+            <code class='code2-3b'>&#60;section&#62; <br> position: relative;</code>
+            <div class="absolute-element">
+                <code class='code2-3b'>&#60;div class="absolute-element"&#62; <br> position: absolute;  <br> right: 20px; <br> top: 20px;</code>
+            </div>
+        </section>
+          
+    </body>
+</html>
