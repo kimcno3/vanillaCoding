@@ -37,22 +37,50 @@
             justify-content: flex-end;
         }
         section {
-            display: inline-block;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
             width: fit-content;
             margin: auto;
         }
-        section article input{
+        section article {
             display: flex;
-            margin: auto;
+            justify-content: center;
+            align-items: center;
+
+            border: gray 1px solid;
+            border-radius: 50px;
+
+            height: 40px;
+        }
+        section article input{
+            height: 35px;
+            width: 400px;
+
+            border : 0px solid white;
         }
         section .section-footer {
             display: flex;
             justify-content: center;
         }
+        button {
+            height: 34px;
+
+            margin : 11px 4px 11px 4px;
+            border : 1px solid #f8f9fa;
+            border-radius: 10px;
+            padding : 0px 16px 0px 16px;
+
+            background-color: #f8f9fa;
+        }
         .wrap-footer{
             display: flex;
             flex-direction: column;
             background-color: #f2f2f2;
+        }
+        .empty {
+            height: 300px;
         }
         .col-2 {
             display: flex;
@@ -88,6 +116,9 @@
                 <button>I'm Feeling Lucky</button>
             </footer>
          </section>
+         <div class='empty'>
+
+         </div>
          <footer class='wrap-footer'>
              <div class='col-1'>
                 <a>대한민국</a>
