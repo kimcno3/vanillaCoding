@@ -17,9 +17,16 @@
             align-content: space-between;
             height: 100%;
         }
-        header .h1{
+        a {
+            text-decoration: solid;
+            color: gray;
+        }
+        header {
             display: flex;
             align-items: center;
+        }
+        header .h1{
+            display: flex;
         }
         header a {
             padding: 5px;
@@ -46,13 +53,16 @@
         }
         section article {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
 
             border: gray 1px solid;
             border-radius: 50px;
 
             height: 40px;
+        }
+        section .search-img{
+            padding: 10px;
         }
         section article input{
             height: 35px;
@@ -103,12 +113,12 @@
             <div class='h1'>
                 <a href=''>Google 정보</a>
                 <a href=''>스토어</a>
-                <div class='h2'>
-                    <div class='h2-1'>
-                        <div class='h2-2'>
-                            <a href=''>Gmail</a>
-                            <a href=''>이미지</a>
-                        </div>
+            </div>
+            <div class='h2'>
+                <div class='h2-1'>
+                    <div class='h2-2'>
+                        <a href=''>Gmail</a>
+                        <a href=''>이미지</a>
                     </div>
                 </div>
             </div>
@@ -118,7 +128,10 @@
                 <img src="https://www.google.com/logos/doodles/2021/seasonal-holidays-2021-6753651837109324-6752733080595603-cst.gif" alt="구글 메인 이미지">
             </header>
             <article>
+                <a class='search-img' href="">🔍</a>
                 <input type="text">
+                <a class='search-img' href="">⌨</a>
+                <a class='search-img' href="">🎤</a>
             </article>
             <footer class="section-footer">
                 <button>Google 검색</button>
