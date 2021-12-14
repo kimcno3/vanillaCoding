@@ -5,30 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>구글 페이지 클론 코드</title>
+    <!-- CSS -->
     <style>
         html, body {
             height: 100%;
             margin: 0;
             padding: 0;
         }
+
         .wrap {
             display: flex;
             flex-direction: column;
             align-content: space-between;
             height: 100%;
         }
+
         a {
             text-decoration: solid;
             color: gray;
         }
+
         .h {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .h .h1{
             display: flex;
         }
+
         .h a {
             padding: 5px;
             margin: 15px;
@@ -38,64 +44,66 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-
-            align-content: flex-end;
-            justify-content: center;
-
-            height: 500px;
+            justify-content: flex-end;
+            height: 400px;
         }
-        section article {
+
+        section .search {
             display: flex;
             justify-content: space-between;
             align-items: center;
-
             border: gray 1px solid;
             border-radius: 50px;
-
             height: 40px;
         }
+
         section .search-img{
             padding: 10px;
         }
-        section article input{
+
+        section .search input{
             height: 35px;
             width: 400px;
-
             border : 0px solid white;
         }
-        section .section-footer {
+
+        section .btn {
             display: flex;
             justify-content: center;
         }
-        button {
-            height: 34px;
 
-            margin : 11px 4px 11px 4px;
+        section .btn button {
+            height: 34px;
+            margin : 11px 4px;
             border : 1px solid #f8f9fa;
             border-radius: 10px;
-            padding : 0px 16px 0px 16px;
-
+            padding : 0px 16px;
             background-color: #f8f9fa;
         }
+
         .empty {
             flex-grow: 1;
         }
-        .wrap-footer{
+
+        .f{
             display: flex;
             flex-direction: column;
             background-color: #f2f2f2;
             color: gray;
         }
-        .col-1 {
+
+        .f .f1 {
             padding: 15px 30px;
             border-bottom: gainsboro 1px solid;
         }
-        .col-2 {
+
+        .f .f2 {
             display: flex;
             justify-content: space-between;
             padding : 15px;
         }
-        .col-2 a{
+
+        .f .f2 a{
             padding : 15px 15px;
         }
     </style>
@@ -114,41 +122,40 @@
                 </div>
             </div>
         </header>
-         <section>
-            <header>
+        <section class='s'>
+            <header class='google-img'>
                 <img src="https://www.google.com/logos/doodles/2021/seasonal-holidays-2021-6753651837109324-6752733080595603-cst.gif" alt="구글 메인 이미지">
             </header>
-            <article>
+            <article class='search'>
                 <a class='search-img' href="">🔍</a>
                 <input type="text">
                 <a class='search-img' href="">⌨</a>
                 <a class='search-img' href="">🎤</a>
             </article>
-            <footer class="section-footer">
+            <footer class="btn">
                 <button>Google 검색</button>
                 <button>I'm Feeling Lucky</button>
             </footer>
-         </section>
-         <div class='empty'>
-
-         </div>
-         <footer class='wrap-footer'>
-             <div class='col-1'>
-                <a>대한민국</a>
-             </div>
-             <div class='col-2'>
-                 <div>
-                    <a>광고</a>
-                    <a>비즈니스</a>
-                    <a>검색의 원리</a>
-                 </div>
-                 <div>
-                    <a>개인정보처리방침</a>
-                    <a>약관</a>
-                    <a>설정</a>
-                 </div>
-             </div>
-         </footer>
+        </section>
+        <div class='empty'>
+        </div>
+        <footer class='f'>
+            <div class='f1'>
+               <a>대한민국</a>
+            </div>
+            <div class='f2'>
+                <div class='f2-1'>
+                   <a>광고</a>
+                   <a>비즈니스</a>
+                   <a>검색의 원리</a>
+                </div>
+                <div class='f2-2'>
+                   <a>개인정보처리방침</a>
+                   <a>약관</a>
+                   <a>설정</a>
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
