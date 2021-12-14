@@ -37,10 +37,12 @@
         section {
             display: flex;
             flex-direction: column;
-            align-content: center;
+            align-items: center;
+
+            align-content: flex-end;
             justify-content: center;
-            width: fit-content;
-            margin: auto;
+
+            height: 500px;
         }
         section article {
             display: flex;
@@ -76,7 +78,7 @@
             background-color: #f8f9fa;
         }
         .empty {
-            height: 250px;
+            flex-grow: 1;
         }
         .wrap-footer{
             display: flex;
