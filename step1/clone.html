@@ -21,28 +21,19 @@
             text-decoration: solid;
             color: gray;
         }
-        header {
+        .h {
             display: flex;
+            justify-content: space-between;
             align-items: center;
         }
-        header .h1{
+        .h .h1{
             display: flex;
         }
-        header a {
+        .h a {
             padding: 5px;
             margin: 15px;
         }
-        header .h2{
-            display: inline-block;
-            flex-grow: 1;
-        }
-        header .h2 .h2-1{
-            display: block;
-        }
-        header  .h2  .h2-1 .h2-2{
-            display: flex;
-            justify-content: flex-end;
-        }
+
         section {
             display: flex;
             flex-direction: column;
@@ -109,17 +100,15 @@
 </head>
 <body>
     <div class='wrap'>
-        <header>
+        <header class='h'>
             <div class='h1'>
                 <a href=''>Google 정보</a>
                 <a href=''>스토어</a>
             </div>
             <div class='h2'>
                 <div class='h2-1'>
-                    <div class='h2-2'>
-                        <a href=''>Gmail</a>
-                        <a href=''>이미지</a>
-                    </div>
+                    <a href=''>Gmail</a>
+                    <a href=''>이미지</a>
                 </div>
             </div>
         </header>
