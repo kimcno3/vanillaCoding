@@ -31,7 +31,6 @@
 <br>
 
 ## 3. 2단계에서 만든 index.js 파일에 console.log('Hello, World');라는 내용을 입력한다.
-: echo console.log('Hello, World'); >> index.js
 ### 활용한 명령어
 - `echo` : 특정 텍스트를 터미널 콘솔에 출력하는 명령어
 - `>>` : 명령어 뒤에 나오는 파일에 추가할 때 사용(=append)
@@ -39,7 +38,7 @@
 
 ### 사용 장면
 - 텍스트를 index.js 파일에 추가
-    ![](https://github.com/kimcno3/vanillaCoding/blob/main/step2/img3.jpg?raw=true)
+![](https://github.com/kimcno3/vanillaCoding/blob/main/step2/img3.jpg?raw=true)
 
 - 텍스트가 추가된 것을 확인할 수 있다.
 ![](https://github.com/kimcno3/vanillaCoding/blob/main/step2/img3_1.JPG?raw=true)
@@ -47,16 +46,14 @@
 <br>
 
 ## 4. 1단계에서 만든 디렉토리 내에 javascript라는 디렉토리를 생성한다.
-: mv index.js javascript
 ### 활용한 명령어
-- `mkdir`
+- `mkdir` : 1단계에서 설명
 
 ### 사용 장면
-!()[]
+- `mkdir` 명령어로 javascript 디렉토리 생성
+- `ls` 명령어로 생성여부 확인
 
-- 
-- 
-- 
+![](https://github.com/kimcno3/vanillaCoding/blob/main/step2/img4.jpg?raw=true)
 
 <br>
 
