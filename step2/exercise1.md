@@ -58,17 +58,15 @@
 <br>
 
 ## 5. 2단계에서 만든 파일을 4단계에서 만든 디렉토리 내부로 이동시킨다. (복사 X)
-: mv index.js javascript
 ### 활용한 명령어
-- `mv`
-- 
+- `mv` : 파일을 다른 디렉토리로 이동시키는 명령어
 
-### 사용 장면
-!()[]
+## 사용 장면
+- `mv` 명령어로 index.js 파일을 javascript 디렉토리로 이동
+- `cd` 명령어로 javascript 디렉토리 위치로 이동
+- `ls` 명령어로 이동된 index.js 파일 확인
 
-- 
-- 
-- 
+![](https://github.com/kimcno3/vanillaCoding/blob/main/step2/img5.jpg?raw=true)
 
 <br>
 
