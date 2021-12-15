@@ -1,4 +1,5 @@
-# STEP 2-1 Exercise 실습
+# STEP 2 Exercise1 : 리눅스 명령어 사용 
+> [문제 상세설명](https://book.vanillacoding.co/starter-kit/step-2/introduction-to-programming/exercise)
 
 ## 1. sample 디렉토리를 생성한다.
 ### 활용한 명령어
@@ -99,3 +100,10 @@
 - `ls` 명령어로 바탕화면 내에 sample 디렉토리 여부 확인
 
 ![](https://github.com/kimcno3/vanillaCoding/blob/main/step2/img7.jpg?raw=true)
+
+<br>
+
+## 참고자료
+- [리눅스 명령어 Top50](https://dora-guide.com/linux-commands/)
+- [rm 명령어 추가설명](https://withcoding.com/95)
+- [cd 명령어 추가 설명](https://shaeod.tistory.com/930)
