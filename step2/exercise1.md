@@ -71,28 +71,31 @@
 <br>
 
 ## 6. 4단계에서 만든 디렉토리를 삭제한다.
-: rm -r javascript
 ### 활용한 명령어
-- `rm -r`
+- `cd -` : 이전 디렉토리 위치로 이동하는 명령어
+- `rm -r`: 디렉토리를 삭제하는 명령어
+    - `rm` 명령어는 파일 삭제만 가능하다.
+    - `rmdir` 명령어는 빈 디렉토리만 삭제 가능하다.
 
 ### 사용 장면
-!()[]
+- `cd -` 명령어로 sample 디렉토리로 위치 이동(이전 경로)
+- `rm` 은 파일만 삭제 가능(에러A)
+- `rmdir`은 빈 디렉토리만 삭제 가능(에러B)
+- `rm -r` 명령어로 javascript 삭제
+- `ls` 명령어로 삭제 상태 확인
 
-- 
-- 
-- 
+![](https://github.com/kimcno3/vanillaCoding/blob/main/step2/img6.jpg?raw=true)
 
 <br>
 
 ## 7. 1단계에서 만든 디렉토리를 삭제한다.
-: rm -r sample
 ### 활용한 명령어
-- `rm -r`
-- 
+- `cd ..` : 상위 디렉토리로 이동하는 명령어
+- `rmdir` : 빈 디렉토리를 삭제하는 명령어
 
 ### 사용 장면
-!()[]
+- `cd ..` 명령어로 바탕화면 디렉토리로 이동
+- `rmdir` 명령어로 비어있던 sample 디렉토리 삭제
+- `ls` 명령어로 바탕화면 내에 sample 디렉토리 여부 확인
 
-- 
-- 
-- 
+![](https://github.com/kimcno3/vanillaCoding/blob/main/step2/img7.jpg?raw=true)
