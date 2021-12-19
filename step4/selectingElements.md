@@ -1,29 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div class="container">
-        <h1>I am a Heading</h1>
-        <p>I am a Paragraph</p>
-        <ul>
-          <li class="item">
-            <p>I am a Paragraph 1</p>
-          </li>
-          <li class="item">
-            <p>I am a Paragraph 2</p>
-          </li>
-          <li class="item">
-            <p>I am a Paragraph 3</p>
-          </li>
-        </ul>
-        <button id="special-button">I am a Button</button>
-    </div>
+# :pushpin: Selecting Elements 실습
+> [상세설명](https://book.vanillacoding.co/starter-kit/step-4/interacting-with-webpages/selecting-elements)
 
+## 실습을 위한 HTML 문서
+```html
+<div class="container">
+    <h1>I am a Heading</h1>
+    <p>I am a Paragraph</p>
+    <ul>
+      <li class="item">
+        <p>I am a Paragraph 1</p>
+      </li>
+      <li class="item">
+        <p>I am a Paragraph 2</p>
+      </li>
+      <li class="item">
+        <p>I am a Paragraph 3</p>
+      </li>
+    </ul>
+    <button id="special-button">I am a Button</button>
+</div>
+```
     <script>
         // CSS 선택자 이름으로 선택하는 방법
 
@@ -79,5 +75,3 @@
         console.log(child);
 
     </script>
-</body>
-</html>
