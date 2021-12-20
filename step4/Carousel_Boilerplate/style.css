@@ -10,7 +10,6 @@ h1 {
   text-align: center;
   font-size: 72px;
 }
-
 .main {
   display: flex;
   flex-direction: column;
@@ -27,13 +26,17 @@ h1 {
   justify-content: center;
 }
 
-a {
-  text-decoration: solid;
+.button-left, .button-right {
+  border: 0px;
+  font-size: 30px;
+  color: gray;
+  background-color: unset;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
-  border : solid 1px black;
+  background-color: gray;
+  padding: 4px;
+  border-color: gray;
   border-radius: 100%;
+  margin: 10px;
 }
