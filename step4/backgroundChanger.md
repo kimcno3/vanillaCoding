@@ -1,4 +1,4 @@
-# :pushpin: Manipulating Elements 실습
+# :pushpin: Background Changer
 > [문제 상세설명](https://book.vanillacoding.co/starter-kit/step-4/interacting-with-webpages/background-changer)
 
 ## 완성 코드
@@ -58,7 +58,7 @@
 </script>
 ```
 **헥스 코드 생성 방법**
-1. 10~9, A~F가 저장된 배열을 생성 <br>
+1. `10~9`, `A~F`가 저장된 배열을 생성 <br>
 : `numbers`
 
 2. 0 ~ 15까지의 숫자 중 하나를 랜덤으로 생성 <br>
