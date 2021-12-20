@@ -23,7 +23,7 @@ var btn = document.querySelector("button");
 
 // 첫번째 버튼을 클릭하면 경고창 실행
 btn.addEventListener("click", function () {
-   alert('경고!') 
+   alert('경고!')
 });
 ```
 
