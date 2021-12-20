@@ -9,11 +9,19 @@ var imgIdx = 0;
 someImageElement.src = images[imgIdx];
 // 우측버튼 클릭
 btnRight.addEventListener("click", function(ev){
-    imgIdx++;
+    if(imgIdx === 4){
+        imgIdx = 0;
+    }else {
+        imgIdx++;
+    }
     someImageElement.src = images[imgIdx];
 });
 // 좌측버튼 클릭
 btnLeft.addEventListener("click", function(ev){
-    imgIdx--;
+    if(imgIdx === 0){
+        imgIdx = 4;
+    }else {
+        imgIdx--;
+    }
     someImageElement.src = images[imgIdx];
 });
