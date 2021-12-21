@@ -3,7 +3,7 @@ var images = ["images/image-1.png", "images/image-2.png", "images/image-3.png", 
 var btnLeft = document.querySelector(".button-left");
 var btnRight = document.querySelector(".button-right");
 var someImageElement = document.querySelector(".image");
-var dots = document.querySelector(".footer");
+var ftr = document.querySelector(".footer");
 
 // 최초 이미지
 var imgIdx = 0;
@@ -28,7 +28,7 @@ btnLeft.addEventListener("click", function(ev){
     someImageElement.src = images[imgIdx];
 });
 // 도트 클릭
-dots.addEventListener("click", function(ev) {
+ftr.addEventListener("click", function(ev) {
     if (ev.target.tagName==='DIV'){
         return;
     } else{
