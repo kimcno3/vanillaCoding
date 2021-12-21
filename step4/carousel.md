@@ -114,44 +114,68 @@ h1 {
 // 이미지파일을 담은 배열 선언
 var images = ["images/image-1.png", "images/image-2.png", "images/image-3.png", "images/image-4.png", "images/image-5.png"];
 // 필요한 요소 선택 후 변수에 선언
+var tbl = document.querySelector(".table");
 var btnLeft = document.querySelector(".button-left");
 var btnRight = document.querySelector(".button-right");
 var someImageElement = document.querySelector(".image");
-var dots = document.querySelector(".footer");
+var ftr = document.querySelector(".footer");
+var dots = document.querySelectorAll(".dot");
 
-// 최초 이미지
+// 최초 이미지 설정
 var imgIdx = 0;
 someImageElement.src = images[imgIdx];
-
-// 우측버튼 클릭
-btnRight.addEventListener("click", function(ev){
-    if(imgIdx === 4){
-        imgIdx = 0;
-    } else {
-        imgIdx++;
-    };
+// 현재 이미지 순서에 맞는 dot의 색상만 검정으로 변경
+dots[imgIdx].style.backgroundColor = "black";
+// 버튼 클릭시
+tbl.addEventListener("click", function(ev){
+    // 이미지 이동 전 dot 색상 제거
+    dots[imgIdx].style.backgroundColor = "unset";
+    // 우측버튼 클릭
+    if (ev.target.className === "button-right"){
+        if(imgIdx === 4){
+            imgIdx = 0;
+        } else {
+            imgIdx++;
+        }
+    }
+    // 좌측버튼 클릭
+    else if (ev.target.className === "button-left"){
+        if(imgIdx === 0){
+            imgIdx = 4;
+        } else {
+            imgIdx--;
+        }
+    }
     someImageElement.src = images[imgIdx];
+    // 이미지 이동 후 해당 순서에 맞는 dot 색상만 검정으로 변경
+    dots[imgIdx].style.backgroundColor = "black";
 });
-// 좌측버튼 클릭
-btnLeft.addEventListener("click", function(ev){
-    if(imgIdx === 0){
-        imgIdx = 4;
-    } else {
-        imgIdx--;
-    };
-    someImageElement.src = images[imgIdx];
-});
-// 도트 클릭
-dots.addEventListener("click", function(ev) {
+// 도트 클릭시
+ftr.addEventListener("click", function(ev) {
     if (ev.target.tagName==='DIV'){
         return;
-    } else{
+    } else {
+        // 이미지 이동 전 dot 색상 제거
+        dots[imgIdx].style.backgroundColor = "unset";
+        // 이미지 변경
         imgIdx = Number(ev.target.title)-1;
         someImageElement.src = images[imgIdx];
+        // 이미지 변경 후 해당 순서에 맞는 dot 색상만 검정으로 변경
+        dots[imgIdx].style.backgroundColor = "black";
     };
 });
 
 ```
-**추가 에러 제어 코드**
-- `footer`에서 `button`을 제외한 다른 부분을 클릭하면 `imgIdx`가 지정되지 않아 이미지가 내려가는 에러를 발견
-- 조건문으로 클릭시 해당 `target` 속성의 태그명이 `div`라면 아무런 동작하지말고 `return`으로 함수를 종료시켰습니다.
+**추가 기능 구현 및 에러 제어**
+1. `footer`에서 `button`을 제외한 다른 부분을 클릭하면 `imgIdx`가 지정되지 않아 이미지가 사라지는 에러를 발견
+    - 조건문으로 클릭시 해당 `target` 속성의 태그명이 `div`라면 아무런 동작하지말고 `return`으로 함수를 종료시켰습니다.
+
+<br>
+
+2. 이미지 위치에 따른 dot의 색상을 구분
+    - 만약 이미지가 첫번째 이미지라면 첫번째 `dot`의 색상만 검정으로 추가하고 나머지는 색상을 없게끔 설정하여, 현재 이미지의 위치를 표현하고 싶었습니다.
+    - 그래서 이벤트 핸들러 실행 전, 기존 인덱스(`imgIdx`)에 해당하는 `dot`의 색상은 제거 <br>
+    : `dots[imgIdx].style.backgroundColor = "unset";`
+
+    - 인덱스 수정 후, 변경된 인덱스에 해당하는 dot는 검정으로 변경하는 코드를 추가했습니다. <br>
+    : `dots[imgIdx].style.backgroundColor = "black";`
