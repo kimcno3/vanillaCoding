@@ -68,7 +68,7 @@ div.addEventListener("click", function (ev) {
 ```
 
 ## Target vs CurrentTarget
-- `currentTareget` 속성은 실제 `addEventListener()`함수를 실행한 대상이 된 요소를 가르킨다.<br>
+- `currentTarget` 속성은 실제 `addEventListener()`함수를 실행한 대상이 된 요소를 가르킨다.<br>
     - `div.addEventListener("click", function() {})` 에서 `currentTarget`은 항상 `div`에 대한 값을 가진다.
 
 - `target`속성은 실제로 그 이벤트가 일어난 요소를 가르킨다.<br>
