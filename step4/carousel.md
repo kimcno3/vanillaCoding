@@ -1,6 +1,8 @@
 # :pushpin: Carousel
 > [문제 상세 설명](https://book.vanillacoding.co/starter-kit/step-4/interacting-with-webpages/carousel)
 
+> 현재까지 완성된 Carousel 페이지 : [링크](https://kimcno3.github.io/vanillaCoding/step4/Carousel_Boilerplate/index.html)
+
 ## 요구사항
 ### [요구사항] Day 1
 - 페이지 로딩 시, 첫 번째 이미지 화면에 보이기
