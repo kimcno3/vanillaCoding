@@ -1,5 +1,6 @@
 var images = ["images/image-1.png", "images/image-2.png", "images/image-3.png", "images/image-4.png", "images/image-5.png"];
 
+var tbl = document.querySelector(".table");
 var btnLeft = document.querySelector(".button-left");
 var btnRight = document.querySelector(".button-right");
 var someImageElement = document.querySelector(".image");
@@ -11,25 +12,25 @@ var imgIdx = 0;
 someImageElement.src = images[imgIdx];
 dots[imgIdx].style.backgroundColor = "black";
 
-// 우측버튼 클릭
-btnRight.addEventListener("click", function(ev){
+tbl.addEventListener("click", function(ev){
     dots[imgIdx].style.backgroundColor = "unset";
-    if(imgIdx === 4){
-        imgIdx = 0;
-    } else {
-        imgIdx++;
-    };
-    someImageElement.src = images[imgIdx];
-    dots[imgIdx].style.backgroundColor = "black";
-});
-// 좌측버튼 클릭
-btnLeft.addEventListener("click", function(ev){
-    dots[imgIdx].style.backgroundColor = "unset";
-    if(imgIdx === 0){
-        imgIdx = 4;
-    } else {
-        imgIdx--;
-    };
+    // 우측버튼 클릭
+    if (ev.target.className === "button-right"){
+        if(imgIdx === 4){
+            imgIdx = 0;
+        } else {
+            imgIdx++;
+        }
+    }
+    // 좌측버튼 클릭
+    else if (ev.target.className === "button-left"){
+        if(imgIdx === 0){
+            imgIdx = 4;
+        } else {
+            imgIdx--;
+        }
+    }
+    else return;
     someImageElement.src = images[imgIdx];
     dots[imgIdx].style.backgroundColor = "black";
 });
