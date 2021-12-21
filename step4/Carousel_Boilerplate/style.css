@@ -6,10 +6,11 @@ body {
 }
 
 h1 {
-  font-family: "Pacifico", cursive;
+  font-family: "Pacifico", "cursive";
   text-align: center;
   font-size: 72px;
 }
+
 .main {
   display: flex;
   flex-direction: column;
@@ -29,14 +30,14 @@ h1 {
 .button-left, .button-right {
   border: 0px;
   font-size: 30px;
-  color: gray;
+  color: black;
   background-color: unset;
 }
 
 .dot {
-  background-color: gray;
+  background-color: unset;
   padding: 4px;
-  border-color: gray;
+  border-color: black;
   border-radius: 100%;
   margin: 10px;
 }
