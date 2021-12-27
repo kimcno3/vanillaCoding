@@ -2,7 +2,8 @@
 > [문제 상세설명](https://book.vanillacoding.co/starter-kit/step-5-1/scope-and-hoisting/javascript-koans)
 
 ## :pushpin: 목차
-[:pushpin: expect() 함수](#pushpin-expect-함수)
+- [:pushpin: expect() 함수](#pushpin-expect-함수)
+- [:pushpin: Array(배열)](#pushpin-Array배열)
 
 <br>
 
@@ -95,5 +96,82 @@ expect(actualValue).toBe(expectedValue);
 
 <br>
 
+## :pushpin: Array(배열)
+배열의 여러가지 특징들은 예제를 통해 연습
+
+<br>
+
+### **배열 생성**
+#### **예제1**
+```jsx
+var emptyArray = []; // 빈 배열 생성
+expect(typeof(emptyArray)).toBe("object"); // 배열의 자료형은 "객체"
+expect(emptyArray.length).toBe(0); // 빈 배열의 길이는 0
+```
+#### **예제2**
+```jsx
+// 여러 자료형을 담은 배열 생성
+var multiTypeArray = [
+    0, // Number
+    1, // Number
+    "two", // String
+    function () { return 3; }, // Function
+    {value1: 4, value2: 5}, // Object
+    [6, 7] // Array
+];
+
+expect(multiTypeArray[0]).toBe(0); // 1번째 요소
+expect(multiTypeArray[2]).toBe("two"); // 3번째 요소
+expect(multiTypeArray[3]()).toBe(3); // 4번째 요소
+expect(multiTypeArray[4].value1).toBe(4); // 5번째 요소의 value1 속성 값
+expect(multiTypeArray[4]["value2"]).toBe(5); // 5번째 요소의 value2 속성 값
+expect(multiTypeArray[5][0]).toBe(6); // 6번째 요소의 1번째 요소
+```
+
+<br>
+
+### **배열 Literals**
+**Literal 정의** : 모든 데이터 타입에 들어가는 데이터값 그 자체 <br>
+[**Literal 추가 설명**](https://developer.mozilla.org/ko/docs/Web/JavaScript/Guide/Grammar_and_types#%EB%A6%AC%ED%84%B0%EB%9F%B4)
+> 결국 **Literal**이란 자바스크립트에서 값을 나타내기 위해 부여한 고정값
+>
+> **배열 Literal은 0개 이상의 식 목록**으로 **각 식**은 **배열의 요소**를 의미한다.
+
+#### **예제**
+```jsx
+var array = []; // 빈 배열 생성
+expect(array).toEqual([]);
+
+array[0] = 1; // 인덱스 0 위치에 값 할당
+expect(array).toEqual([1]);
+
+array[1] = 2; // 인덱스 1 위치에 값 할당
+expect(array).toEqual([1, 2]);
+
+array.push(3); // 배열 마지막 위치에 새로운 요소 추가
+expect(array).toEqual([1, 2, 3]);
+```
+
+<br>
+
+### **배열 길이(length)**
+
+<br>
+
+### **push, pop, shift, unshift**
+
+<br>
+
+### **slice**
+
+<br>
+
+### **Reference**
+
+<br>
+
+***
+
+<br>
 
 
