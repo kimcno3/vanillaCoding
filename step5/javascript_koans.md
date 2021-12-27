@@ -2,7 +2,7 @@
 > [문제 상세설명](https://book.vanillacoding.co/starter-kit/step-5-1/scope-and-hoisting/javascript-koans)
 
 ## :pushpin: 목차
-
+[:pushpin: expect() 함수](#pushpin-expect-함수)
 
 <br>
 
@@ -65,6 +65,26 @@ var actualValue = 1 + 1;
 
 // 만약 `actualValue`의 값이 `2`라면 에러가 나지 않는다.
 expect(actualValue).toEqual(expectedValue);
+
+// 다음과 같이도 활용할 수 있다.
+// ? 가 2라면 에러 X
+expect(1 + 1).toEqual(?);
 ```
+
+<br>
+
+### **toBe()**
+`toEquel()` 함수와 같이 테스트값과 기대값을 비교하는 함수
+
+#### **예제**
+```jsx
+var expectedValue = ?;
+var actualValue = (1 + 1).toString();
+
+// 자료형을 정확히 확인하기 위해서도 사용할 수 있다.
+// ? 가 문자열 "2"라면 에러 X
+expect(actualValue).toBe(expectedValue);
+```
+
 <br>
 
