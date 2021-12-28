@@ -4,6 +4,8 @@
 ## :pushpin: 목차
 - [:pushpin: expect() 함수](#pushpin-expect-함수)
 - [:pushpin: Array(배열)](#pushpin-Array배열)
+- [:pushpin: Function(함수)](#pushpin-Function함수)
+
 
 <br>
 
@@ -302,4 +304,161 @@ expect(array[3]).toBe("three");
 
 <br>
 
+## :pushpin: Function(함수)
 
+<br>
+
+### **오버라이딩(Overriding)**
+- 상위 Scope에서 선언한 변수 또는 메소드를 자식 Scope에서 재선언하여 사용하는 것을 의미합니다.
+- 오버라이딩된 변수, 메소드는 하위 Scope 안에서만 유효하고 상위 Scope에서는 유효하지 않습니다.
+> [자바스크립트 오버라이딩 상세 설명](https://beomy.tistory.com/5)
+
+#### **예제**
+```jsx
+// 전역변수 선언
+var message = "Outer";
+
+// 전역변수 return
+function getMessage() {
+    return message;
+}
+
+// 오버라이딩
+function overrideMessage() {
+    var message = "Inner";
+    return message;
+}
+```
+
+```jsx
+// 전역변수로 선언된 변수값 return
+expect(getMessage()).toBe("Outer");
+
+// 오버라이딩한 변수값 return
+expect(overrideMessage()).toBe("Inner");
+
+// 오버라이딩 아후 다시 변수값을 출력해보면 바뀌어 있지 않습니다.(오버라이딩하는 함수 내에서만 변경내용 유효)
+expect(message).toBe("Outer");
+```
+> 만약 오버라이딩이 아니라 함수 실행시 전역변수를 재할당하는 경우, Global Scope에서도 재할당된 변수값이 유효합니다.
+
+<br>
+
+### **렉시컬 스코핑(lexical scoping)**
+-  **함수를 어디에 선언했는지**에 따라 Scope가 결정되는 방식
+- 반대로 **어디서 호출되었는지**에 따라 Scope가 결정되는 방식을 **Dynamic scoping** 이라고 합니다.
+> [스코핑 상세설명](https://im-developer.tistory.com/63)
+
+#### **예제**
+```jsx
+var variable = "top-level"; // 1, 2
+function parentfunction() { // 1
+    var variable = "local"; // 4, 5
+    function childfunction() { // 4
+        return variable; // 7
+    }
+    return childfunction(); // 6
+}
+expect(parentfunction()).toBe("local"); // 3
+```
+#### **코드 구동 흐름**
+1. `variable` 변수 , `parentfunction()` 함수 선언
+2. `variable` 변수에 문자열 할당(`"top-level"`)
+3. `parentfunction()` 함수 실행
+4. `variable` 변수, `childfunction()` 함수 선언
+5. `variable` 변수 오버라이딩(`"local"`)
+6. `childfunction()` 함수 실행
+7. `variable` 변수 반환(`"local"`)
+
+<br>
+
+### 렉시컬 스코핑 심화
+#### **예제**
+```jsx
+// 외부함수 선언
+function makeMysteryFunction(makerValue){
+    // 내부함수 선언
+    var newFunction = function doMysteriousThing(param){
+        return makerValue + param; // 최종 결과값
+    };
+    return newFunction; // 내부함수 호출, 괄호 X
+}
+
+// 실행변수 선언
+var mysteryFunction3 = makeMysteryFunction(3);
+var mysteryFunction5 = makeMysteryFunction(5);
+
+// 실행변수를 통해 외부함수 호출
+expect(mysteryFunction3(10) + mysteryFunction5(5)).toBe(23);
+```
+#### **코드 구동 흐름**
+1. 함수 및 실행 변수 선언
+2. 실행변수 호출
+3. 실행변수에 할당된 외부함수 호출 및 실행
+4. 외부함수 실행 결과로 내부함수 호출 및 실행
+5. 외부함수와 내부함수의 매개변수들을 더한 값을 최종 결과값으로 반환
+
+<br>
+
+#### **매개변수 전달 과정 설명**
+최종 결과값을 얻기 위해서는 실행 변수를 통해 외부함수를 호출하고, 외부함수에서 내부함수를 호출하여 내부 함수까지 실행된 최종 반환값을 돌려받아야 합니다.
+
+이때 두개의 매개변수가 어떻게 전달되는지 이해하기 위해서는 **함수 호출시 괄호 유무에 따른 실행결과값의 차이**를 알아야 합니다.
+
+만약 외부함수 호출시 괄호없이 호출한다면 실행 결과는 **외부함수 자체를 호출**할 뿐, 함수를 실행하지 않습니다.
+```jsx
+console.log(makeMysteryFunction); // log : [function: makeMysteryFunction]
+```
+
+<br>
+
+즉, 함수 호출 시 **괄호도 함께 작성**해야 **함수를 실행**하고 필요에 따라 **return 값을 반환**합니다.
+
+하지만 위 예제에서는 외부함수의 반환값으로 호출된 내부함수에 괄호가 없습니다.
+
+이로 인해, 내부함수까지 실행되지 않고 내부함수 자체를 호출하게 됩니다.
+```jsx
+console.log(makeMysteryFunction(3));
+// log : [function: newFunction]
+// 이때 인자값인 3은 매개변수 makerValue로 전달됩니다.
+```
+
+<br>
+
+내부함수까지 실행한 다음, 최종 결과값을 반환받기 위해서는 내부함수에도 괄호와 함께 매개변수가 전달되어야 합니다.
+
+이를 위해 실행 변수를 호출하여 실행변수에 인자를 지정해주면 실행변수에서 지정된 인자는 내부함수의 매개변수로 전달됩니다.
+
+그 이유를 알아보기 위해 실행변수에 인자를 지정하지 않고 실행해보겠습니다.
+
+```jsx
+console.log(mysteryFunction3); // [function : doMysteriousThing]
+```
+
+위 코드처럼 실행변수만 호출했을 때 내부함수 자체가 호출되는 것을 볼 수 있습니다.
+
+그렇다면 실행변수에 내부함수에 전달될 매개변수를 지정해준다면 최종적으로 내부함수에 매개변수가 전달되어 함수를 실행시킬 수 있습니다.
+
+<br>
+
+**최종적으로**
+- `mysteryFunction3` 와 `mysteryFunction5`에 지정된 인자 10과 5는 매개변수 `param`으로 전달
+- 위 변수 호출시 실행되는 외부함수에 지정된 인자 3과 5는 매개변수 `makerValue`에 전달
+
+되면서 최종 결과값은 23이 나오게 됩니다.
+
+```jsx
+expect(mysteryFunction3(10) + mysteryFunction5(5)).toBe(23); // (10 + 3) + (5 + 5) = 23
+```
+
+<br>
+
+### **매개변수(Argument)**
+
+
+<br>
+
+### **함수를 값으로 전달(Pass function as Values)**
+
+
+<br>
