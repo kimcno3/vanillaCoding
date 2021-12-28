@@ -305,9 +305,6 @@ expect(array[3]).toBe("three");
 <br>
 
 ## :pushpin: Function(함수)
-
-<br>
-
 ### **오버라이딩(Overriding)**
 - 상위 Scope에서 선언한 변수 또는 메소드를 자식 Scope에서 재선언하여 사용하는 것을 의미합니다.
 - 오버라이딩된 변수, 메소드는 하위 Scope 안에서만 유효하고 상위 Scope에서는 유효하지 않습니다.
@@ -450,17 +447,95 @@ console.log(mysteryFunction3); // [function : doMysteriousThing]
 되면서 최종 결과값은 23이 나오게 됩니다.
 
 ```jsx
-expect(mysteryFunction3(10) + mysteryFunction5(5)).toBe(23); // (10 + 3) + (5 + 5) = 23
+expect(mysteryFunction3(10) + mysteryFunction5(5)).toBe(23);
+// (10 + 3) + (5 + 5) = 23
 ```
 
 <br>
 
 ### **매개변수(Argument)**
+#### **예제 1**
+```jsx
+function returnFirstArg(firstArg) {
+    return firstArg;
+}
 
+expect(returnFirstArg("first", "second", "third")).toBe("first");
+```
+인자로 여러개의 값을 지정해도 함수에서 하나의 매개변수만 받는다면 가장 첫번째 인자가 매개변수로 지정됩니다.
+
+<br>
+
+#### **예제 2**
+```jsx
+function returnSecondArg(firstArg, secondArg) {
+    return secondArg;
+}
+expect(returnSecondArg("only give first arg")).toBe(undefined);
+```
+인자값이 없는 매개변수(`secondArg`)가 호출될 경우, `undefined`값을 가지게 됩니다.
+
+<br>
+
+#### **예제 3**
+```jsx
+function returnAllArgs() {
+    var argsArray = [];
+    // 매개변수를 순서대로 push
+    for (var i = 0; i < arguments.length; i += 1) {
+    argsArray.push(arguments[i]);
+    }
+    // 배열 요소를 ","를 기준으로 나누며 하나의 문자열로 합친다.
+    return argsArray.join(",");
+}
+
+expect(returnAllArgs("first", "second", "third")).toBe("first,second,third");
+```
+`arguments` 객체를 활용하면 매개변수의 이름을 정하지 않아도 **인자들을 요소로 가진 배열의 형태**로 가져올 수 있습니다.
+
+> [`arguments` 객체에 대한 상세 설명](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Functions/arguments)
 
 <br>
 
 ### **함수를 값으로 전달(Pass function as Values)**
+#### **예제**
+```jsx
+var appendRules = function (name) {
+    return name + " rules!";
+};
 
+var appendDoubleRules = function (name) {
+    return name + " totally rules!";
+};
+```
+위 함수들은 변수에 할당되어 선언된 모습입니다. (함수 표현식)
+- `appendRules` : `name`이라는 매개변수를 가진 함수
+- `appendDoubleRules` : `name`이라는 매개변수를 가진 또 다른 함수
 
 <br>
+
+#### **예제코드 활용**
+```jsx
+// #1
+var praiseSinger = { givePraise: appendRules };
+expect(praiseSinger.givePraise("John")).toBe("John rules!");
+
+// #2
+praiseSinger.givePraise = appendDoubleRules;
+expect(praiseSinger.givePraise("Mary")).toBe("Mary totally rules!");
+```
+**#1 코드**를 설명하면
+- `praiseSinger`라는 객체에는 `givePraise`의 이름으로 속성을 생성했고, 속성값은 위에서 만든 `appendRules` 함수를 할당했습니다.
+- 그 다음 `givePraise`를 호출하면서 `appendRules`함수를 실행했고 `"John"`이라는 문자열이 인자값으로 지정했습니다. 그 결과로 `"John rules!"`이라는 문자열이 반환된것입니다.
+    ```jsx
+    praiseSinger.givePraise("John") === appendRules("John");
+    ```
+
+**#2 코드**도 같은 원리로 이해하면 됩니다.
+
+<br>
+
+***
+
+<br>
+
