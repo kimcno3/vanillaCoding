@@ -401,6 +401,8 @@ expect(mysteryFunction3(10) + mysteryFunction5(5)).toBe(23);
 <br>
 
 #### **매개변수 전달 과정 설명**
+> [참고 자료 링크](https://stackoverflow.com/questions/17605471/lexical-scoping-parameters-in-javascript)
+
 최종 결과값을 얻기 위해서는 실행 변수를 통해 외부함수를 호출하고, 외부함수에서 내부함수를 호출하여 내부 함수까지 실행된 최종 반환값을 돌려받아야 합니다.
 
 이때 두개의 매개변수가 어떻게 전달되는지 이해하기 위해서는 **함수 호출시 괄호 유무에 따른 실행결과값의 차이**를 알아야 합니다.
