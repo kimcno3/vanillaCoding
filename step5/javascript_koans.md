@@ -893,33 +893,58 @@ expect(numbers).toEqual([1, 2, 3]);
 
 <br>
 
-### **all()**
-
+### **every() , some()**
+- `every()` 함수는 원하는 배열의 요소들 전부 특정 조건에 부합해야만 `true`를 반환합니다.
+> [every() 함수 상세 설명](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
+- `some()` 함수는 배열의 요소들 중 하나라도 특정 조건에 부합한다면 `true`를 반환합니다.
+> [some() 함수 상세 설명](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 #### **예제**
+```jsx
+var onlyEven = [2,4,6]; // 짝수만 있는 배열
+var mixedBag = [2,4,5,6]; // 섞여있는 배열
+
+// 홀수, 짝수를 구분하는 함수 선언
+var isEven = function(x) { return x % 2 === 0 };
+
+
+// every() 활용
+expect(_(onlyEven).every(isEven)).toBe(true); // 모든 요소가 짝수일 경우 true
+expect(_(mixedBag).every(isEven)).toBe(false); // 하나라도 짝수가 아니라면 false
+
+
+// some() 활용
+expect(_(onlyEven).some(isEven)).toBe(true); // 하나라도 짝수가 있다면 true
+expect(_(mixedBag).some(isEven)).toBe(true);
+```
 
 <br>
 
-### **any()**
-
-#### **예제**
-
-<br>
-
-### **range()**
-
-#### **예제**
+### **flat()**
+- 모든 하위 배열 요소를 지정한 깊이까지 재귀적으로 이어붙인 새로운 배열을 생성
+> [flat() 상세 설명](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
 
 <br>
 
-### **flatten()**
-
-#### **예제**
+#### **flat() 함수 사용법**
+```jsx
+arr.flat(depth)
+```
+`depth`는 배열 중복의 깊이를 의미하며 기본값은 `1`입니다.
 
 <br>
 
-### **chain()**
-
 #### **예제**
+```jsx
+//배열깊이가 2일 경우
+expect(_([ [1, 2], [3, 4] ]).flat()).toEqual([1, 2, 3, 4]);
+
+// 배열깊이가 3일 경우
+expect(_([ [1, 2, [3]], [4, 5] ]).flat()).toEqual([1, 2, [3], 4, 5]);
+
+// 배열깊이가 3, 매개변수에 2를 지정
+expect(_([ [1, 2, [3]], [4, 5] ]).flat(2)).toEqual([1, 2, 3, 4, 5]);
+
+```
 
 <br>
 
