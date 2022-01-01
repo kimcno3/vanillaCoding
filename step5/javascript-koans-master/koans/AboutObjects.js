@@ -42,8 +42,8 @@ describe("About Objects", function () {
       }
     };
 
-    expect(currentYear).toBe(2021);
-    expect(megalomaniac.calculateAge()).toBe(2021 - 1970);
+    expect(currentYear).toBe(2022);
+    expect(megalomaniac.calculateAge()).toBe(2022 - 1970);
   });
   // in 키워드 활용법
   describe("'in' keyword", function () {
