@@ -5,7 +5,7 @@
 - [:pushpin: expect() 함수](#pushpin-expect-함수)
 - [:pushpin: Array(배열)](#pushpin-Array배열)
 - [:pushpin: Function(함수)](#pushpin-Function함수)
-- [:pushpin: Object(객체)](#:pushpin:-Object객체)
+- [:pushpin: Object(객체)](#pushpin-Object객체)
 
 
 <br>
@@ -542,7 +542,6 @@ expect(praiseSinger.givePraise("Mary")).toBe("Mary totally rules!");
 
 ## :pushpin: Object(객체)
 ### **Property(속성)**
-
 #### **예제1**
 기본적인 객체 생성 및 속성 접근 방법은 다음과 같습니다.
 ```jsx
@@ -621,9 +620,9 @@ expect(megalomaniac.calculateAge()).toBe(2022 - 1970);
 var megalomaniac;
 
 megalomaniac = {
-mastermind: "The Monarch",
-henchwoman: "Dr Girlfriend",
-theBomb: true
+    mastermind: "The Monarch",
+    henchwoman: "Dr Girlfriend",
+    theBomb: true
 };
 
 // 해당 객체에 속성이 존재하면 true
@@ -664,7 +663,6 @@ expect("henchman" in megalomaniac).toBe(false);
 ### **Prototype(프로토타입)**
 - 자바스크립트에서 객체 상속을 위해 사용하는 방식
 - 상속되는 객체의 속성들은 객체가 아닌 그 객체 생성자의 `prototype`이라는 속성에 따로 정의되어 있다고 볼 수 있습니다.
-
 > [프로토타입 상세설명](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Object_prototypes)
 
 #### **예제**
