@@ -696,3 +696,109 @@ expect(colouredCircle.describe()).toBe("This circle has a radius of: 5");
 
 `prototype` 속성에 함수나 속성을 선언해두면, `Circle` 객체 생성자로 만들어진 모든 객체들은 `prototype`에 있는 속성들을 상속받게 됩니다.
 
+<br>
+
+***
+
+<br>
+
+## :pushpin: Mutable
+선언된 값을 변경 할 수 있는 속성을 **Mutable**이라고 하며 자바스크립트에서는 **객체**만이 Mutable 속성을 가지고 있습니다.
+
+### **객체**
+```jsx
+// 객체 생성
+var aPerson = {firstname: "John", lastname: "Smith" };
+
+// 객체 속성값 변경
+aPerson.firstname = "Alan";
+
+// 수정된 속성값 확인
+expect(aPerson.firstname).toBe("Alan");
+```
+
+### **객체 생성자**
+```jsx
+// 객체 생성자 선언
+function Person(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+}
+
+// 객체 생성
+var aPerson = new Person ("John", "Smith");
+
+// 객체 속성값 변경
+aPerson.firstname = "Alan";
+
+// 수정된 속성값 확인
+expect(aPerson.firstname).toBe("Alan");
+```
+
+### **프로토타입**
+```jsx
+// 객체 생성자 선언
+function Person(firstname, lastname){
+    this.firstname = firstname;
+    this.lastname = lastname;
+}
+
+// 프로토타입에 함수 선언
+Person.prototype.getFullName = function () {
+    return this.firstname + " " + this.lastname;
+};
+
+// 객체 생성
+var aPerson = new Person ("John", "Smith");
+
+// 변경 전 함수 결과
+expect(aPerson.getFullName()).toBe("John Smith");
+
+// 프로토타입 함수 변경 (해당 객체에서만 변경)
+aPerson.getFullName = function () {
+    return this.lastname + ", " + this.firstname;
+};
+
+//변경 후 함수 결과
+expect(aPerson.getFullName()).toBe("Smith, John");
+```
+
+### **매개변수**
+**객체 생성자의 매개변수**는 Mutable 특징을 가지지 않습니다.
+```jsx
+function Person(firstname, lastname){
+    // 객체의 속성이 아닌 매개변수를 이용한 속성 선언
+    var fullName = firstname + " " + lastname;
+    this.getFirstName = function () { return firstname; };
+    this.getLastName = function () { return lastname; };
+    this.getFullName = function () { return fullName; };
+}
+
+// 객체 생성
+var aPerson = new Person ("John", "Smith");
+
+// 객체 속성 변경 시도
+aPerson.firstname = "Penny";
+aPerson.lastname = "Andrews";
+aPerson.fullName = "Penny Andrews";
+
+// 변경되지 않은 속성값을 확인할 수 있습니다.
+expect(aPerson.getFirstName()).toBe("John");
+expect(aPerson.getLastName()).toBe("Smith");
+expect(aPerson.getFullName()).toBe("John Smith");
+
+// 매개변수가 아닌 객체의 속성을 사용해서 풀네임 생성하는 함수로 변경
+aPerson.getFullName = function () {
+    return aPerson.lastname + ", " + aPerson.firstname;
+};
+
+// 변경된 함수 결과 확인
+expect(aPerson.getFullName()).toBe("Andrews, Penny");
+```
+
+<br>
+
+***
+
+<br>
+
