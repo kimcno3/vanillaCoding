@@ -5,6 +5,7 @@
 - [:pushpin: expect() 함수](#pushpin-expect-함수)
 - [:pushpin: Array(배열)](#pushpin-Array배열)
 - [:pushpin: Function(함수)](#pushpin-Function함수)
+- [:pushpin: Object(객체)](#:pushpin:-Object객체)
 
 
 <br>
@@ -538,4 +539,162 @@ expect(praiseSinger.givePraise("Mary")).toBe("Mary totally rules!");
 ***
 
 <br>
+
+## :pushpin: Object(객체)
+### **Property(속성)**
+
+#### **예제1**
+기본적인 객체 생성 및 속성 접근 방법은 다음과 같습니다.
+```jsx
+// 객체를 담을 변수 선언
+var megalomaniac;
+
+// 객체 리터럴
+megalomaniac = {  mastermind: "Joker", henchwoman: "Harley" };
+
+// 객체 속성 접근 방법
+expect(megalomaniac.mastermind).toBe("Joker");
+
+// 객체의 속성명은 대,소문자를 구분합니다.
+expect(megalomaniac.henchwoman).toBe("Harley");
+expect(megalomaniac.henchWoman).toBe(undefined);
+```
+
+#### **예제2**
+**함수**로 선언된 객체는 메소드와 같이 작동합니다.
+```jsx
+var megalomaniac = {
+    mastermind : "Brain",
+    henchman: "Pinky",
+    battleCry: function (noOfBrains) {
+        return "They are "
+                + this.henchman // 같은 객체에서 henchman 속성값
+                + " and the"
+                + Array(noOfBrains + 1).join(" " + this.mastermind);
+    }
+};
+
+// 메소드를 변수에 선언
+var battleCry = megalomaniac.battleCry(4);
+
+// 변수 호출 === 매소드 실행
+expect("They are Pinky and the Brain Brain Brain Brain").toMatch(battleCry);
+```
+
+#### **에제3**
+한 객체의 메소드에서 **같은 객체의 속성값**을 가져올 때는 객체명이 아닌 `this`를 사용하여 접근해야 합니다.
+```jsx
+// 현재 연도 계산
+var currentDate = new Date();
+var currentYear = (currentDate.getFullYear());
+
+// 객체 생성
+var megalomaniac = {
+    mastermind: "James Wood",
+    henchman: "Adam West",
+    birthYear: 1970,
+
+    // 현재 연도에서 이 객체의 birthYear 속성값을 빼는 함수
+    calculateAge: function () {
+    return currentYear - this.birthYear;
+    }
+};
+
+// 현재 연도 계산
+expect(currentYear).toBe(2022);
+
+// 나이 계산
+expect(megalomaniac.calculateAge()).toBe(2022 - 1970);
+```
+
+<br>
+
+### **`in` Keyword**
+-  `in` 연산자는 명시된 속성이 명시된 객체에 존재하면 `true`를 반환합니다.
+- 기본 형태 : `속성명 in 객체명`
+
+> [in 연산자 상세 설명](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/in)
+
+#### **예제**
+```jsx
+// 객체 생성
+var megalomaniac;
+
+megalomaniac = {
+mastermind: "The Monarch",
+henchwoman: "Dr Girlfriend",
+theBomb: true
+};
+
+// 해당 객체에 속성이 존재하면 true
+var hasBomb = "theBomb" in megalomaniac;
+expect(hasBomb).toBe(true);
+
+// 해당 객체에 속성이 없으면 false
+var hasDetonator = "theDetonator" in megalomaniac;
+expect(hasDetonator).toBe(false);
+```
+
+<br>
+
+### **속성 추가(add) & 삭제(delete)**
+- **속성 추가** : 객체에 새로운 속성 선언
+- **속성 삭제** : `delete` 연산자 활용
+> [delete 연산자 상세 설명](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/delete)
+
+#### **예제**
+```jsx
+// 객체 생성
+var megalomaniac = { mastermind : "Agent Smith", henchman: "Agent Smith" };
+
+// 속성 존재 여부 파악
+expect("secretary" in megalomaniac).toBe(false);
+
+// 없는 속성을 객체에 추가
+megalomaniac.secretary = "Agent Smith";
+expect("secretary" in megalomaniac).toBe(true);
+
+// 기존에 존재하던 속성 삭제
+delete megalomaniac.henchman;
+expect("henchman" in megalomaniac).toBe(false);
+```
+
+<br>
+
+### **Prototype(프로토타입)**
+- 자바스크립트에서 객체 상속을 위해 사용하는 방식
+- 상속되는 객체의 속성들은 객체가 아닌 그 객체 생성자의 `prototype`이라는 속성에 따로 정의되어 있다고 볼 수 있습니다.
+
+> [프로토타입 상세설명](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Object_prototypes)
+
+#### **예제**
+```jsx
+// 객체 생성자 선언
+function Circle(radius) {
+    this.radius = radius;
+}
+
+// Circle 객체1 생성(추가 속성 X)
+var simpleCircle = new Circle(10);
+
+// Circle 객체2 생성(추가 속성 O)
+var colouredCircle = new Circle(5);
+colouredCircle.colour = "red";
+
+expect(simpleCircle.colour).toBe(undefined); // 객체1에는 없는 속성
+expect(colouredCircle.colour).toBe("red"); // 객체2에는 존재하는 속성
+
+// Circle 객체 생성자에 prototype 속성에 함수 선언
+Circle.prototype.describe = function () {
+return "This circle has a radius of: " + this.radius;
+};
+
+// 프로토타입에 선언된 함수는 해당 객체 생성자로 생성된 객체들에서 사용 가능하다.
+expect(simpleCircle.describe()).toBe("This circle has a radius of: 10");
+expect(colouredCircle.describe()).toBe("This circle has a radius of: 5");
+```
+
+`Circle` 이라는 객체 생성자에는 `prototype`이라는 속성을 가지고 있고, `prototype`의 자료형은 객체입니다.
+
+`prototype` 속성에 함수나 속성을 선언해두면, `Circle` 객체 생성자로 만들어진 모든 객체들은 `prototype`에 있는 속성들을 상속받게 됩니다.
 
