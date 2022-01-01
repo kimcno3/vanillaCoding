@@ -826,9 +826,8 @@ var numbers = [1,2,3];
 
 <br>
 
+**filter()**
 ```jsx
-// filter()
-
 // 홀수인 요소만 추려냅니다.(마치 필터처럼)
 var odd = _(numbers).filter(function (x) { return x % 2 !== 0 });
 
@@ -838,11 +837,12 @@ expect(odd).toEqual([1,3]);
 // filter 함수를 적용해도 기존 배열에 영향을 주지 않습니다.
 expect(odd.length).toBe(2);
 expect(numbers.length).toBe(3);
+```
 
-=============================================================================================================================
+<br>
 
-// map()
-
+**map()**
+```jsx
 // 모든 요소에 +1한 배열을 생성합니다.
 var numbersPlus1 = _(numbers).map(function(x) { return x + 1 });
 
@@ -850,28 +850,29 @@ var numbersPlus1 = _(numbers).map(function(x) { return x + 1 });
 expect(numbersPlus1).toEqual([2, 3, 4]);
 // 기존 배열
 expect(numbers).toEqual([1, 2, 3]);
+```
 
-=============================================================================================================================
+<br>
 
-// reduce()
-
+**reduce()**
+```jsx
+// 배열 요소들의 합계를 계산
+var reduction = _(numbers).reduce(function(memo, x) { return memo + x }, 0);
 // memo : 이전까지 계산된 값
 // x : 다음으로 지정될 요소
 // 0 : reduce 함수가 시작할 때의 초기값
-
-// 배열 요소들의 합계를 계산
-var reduction = _(numbers).reduce(function(memo, x) { return memo + x }, 0);
 
 // 결과값(1+2+3 === 6)
 expect(reduction).toBe(6);
 
 // 기존 배열
 expect(numbers).toEqual([1, 2, 3]);
+```
 
-=============================================================================================================================
+<br>
 
-// forEach()
-
+**forEach()**
+```jsx
 // item이 짝수라면, "true" 문자열 추가
 // item이 홀수라면, "false" 문자열 추가
 var msg = "";
@@ -888,15 +889,6 @@ expect(msg).toEqual("falsetruefalse");
 
 // 기존 배열
 expect(numbers).toEqual([1, 2, 3]);
-```
-
-#### **예제**
-```jsx
-
-```
-#### **예제**
-```jsx
-
 ```
 
 <br>
