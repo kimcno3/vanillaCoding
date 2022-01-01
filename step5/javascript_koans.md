@@ -6,6 +6,7 @@
 - [:pushpin: Array(배열)](#pushpin-Array배열)
 - [:pushpin: Function(함수)](#pushpin-Function함수)
 - [:pushpin: Object(객체)](#pushpin-Object객체)
+- [:pushpin: Higher Order Functions(고차함수)](#pushpin-Higher-Order-Functions고차함수)
 
 
 <br>
@@ -802,3 +803,132 @@ expect(aPerson.getFullName()).toBe("Andrews, Penny");
 
 <br>
 
+## :pushpin: Higher Order Functions(고차함수)
+고차함수란, 함수를 인자로 받거나 함수를 반환하면서 작동하는 함수를 의미합니다.
+- 함수를 인자로 받는다.**(Parameter)**
+- 함수를 반환한다.**(Return)**
+
+자바스크립트는 고차함수 개념을 활용하여 함수형 프로그래밍을 구현한 언어입니다.
+
+> [고차함수 상세설명](https://velog.io/@jakeseo_me/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%9D%BC%EB%A9%B4-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%A0-33%EA%B0%80%EC%A7%80-%EA%B0%9C%EB%85%90-22-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EA%B3%A0%EC%B0%A8-%ED%95%A8%EC%88%98Higher-Order-Function-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0#%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%9D%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C%EC%9A%94)
+
+
+### **filter(), map(), reduce(), forEach()**
+위 네개 함수에 대한 개념 설명은 이전에 공부한 경험이 있어 해당 정리글 링크로 대체했습니다.
+> [정리글 링크](https://github.com/kimcno3/TIL/blob/main/programming_language/javascript.md#foreach--map--filter--reduce)
+
+#### **예제**
+```jsx
+var numbers = [1,2,3];
+```
+예제 설명을 위한 배열을 생성합니다.
+
+<br>
+
+```jsx
+// filter()
+
+// 홀수인 요소만 추려냅니다.(마치 필터처럼)
+var odd = _(numbers).filter(function (x) { return x % 2 !== 0 });
+
+// 홀수만 남은 odd 배열
+expect(odd).toEqual([1,3]);
+
+// filter 함수를 적용해도 기존 배열에 영향을 주지 않습니다.
+expect(odd.length).toBe(2);
+expect(numbers.length).toBe(3);
+
+==================================================================
+// map()
+
+// 모든 요소에 +1한 배열을 생성합니다.
+var numbersPlus1 = _(numbers).map(function(x) { return x + 1 });
+
+// 생성된 배열
+expect(numbersPlus1).toEqual([2, 3, 4]);
+// 기존 배열
+expect(numbers).toEqual([1, 2, 3]);
+
+==================================================================
+
+// reduce()
+
+// memo : 이전까지 계산된 값
+// x : 다음으로 지정될 요소
+// 0 : reduce 함수가 시작할 때의 초기값
+
+// 배열 요소들의 합계를 계산
+var reduction = _(numbers).reduce(function(memo, x) { return memo + x }, 0);
+
+// 결과값(1+2+3 === 6)
+expect(reduction).toBe(6);
+
+// 기존 배열
+expect(numbers).toEqual([1, 2, 3]);
+
+==================================================================
+
+// forEach()
+
+// item이 짝수라면, "true" 문자열 추가
+// item이 홀수라면, "false" 문자열 추가
+var msg = "";
+var isEven = function (item) {
+    msg += (item % 2) === 0;
+};
+
+
+// numbers 배열의 요소 하나씩 지정하여 isEven 함수의 매개변수로 지정한 뒤 isEven 함수 실행
+_(numbers).forEach(isEven);
+
+// 함수 실행 결과
+expect(msg).toEqual("falsetruefalse");
+
+// 기존 배열
+expect(numbers).toEqual([1, 2, 3]);
+```
+
+#### **예제**
+```jsx
+
+```
+#### **예제**
+```jsx
+
+```
+
+<br>
+
+### **all()**
+
+#### **예제**
+
+<br>
+
+### **any()**
+
+#### **예제**
+
+<br>
+
+### **range()**
+
+#### **예제**
+
+<br>
+
+### **flatten()**
+
+#### **예제**
+
+<br>
+
+### **chain()**
+
+#### **예제**
+
+<br>
+
+***
+
+<br>
