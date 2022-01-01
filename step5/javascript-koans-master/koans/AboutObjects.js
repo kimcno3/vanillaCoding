@@ -60,12 +60,12 @@ describe("About Objects", function () {
 
       var hasBomb = "theBomb" in megalomaniac;
 
-      expect(hasBomb).toBe(true); // 존재하면 true, 없으면 false
+      expect(hasBomb).toBe(true);
     });
 
     it("should not have the detonator however", function () {
 
-      var hasDetonator = "theDetonator" in megalomaniac; // 없으면 false??
+      var hasDetonator = "theDetonator" in megalomaniac;
 
       expect(hasDetonator).toBe(false);
     });
@@ -79,7 +79,7 @@ describe("About Objects", function () {
     megalomaniac.secretary = "Agent Smith";
     expect("secretary" in megalomaniac).toBe(true);
 
-    delete megalomaniac.henchman; // 삭제
+    delete megalomaniac.henchman;
     expect("henchman" in megalomaniac).toBe(false);
   });
 
@@ -91,6 +91,7 @@ describe("About Objects", function () {
       }
 
       var simpleCircle = new Circle(10);
+
       var colouredCircle = new Circle(5);
       colouredCircle.colour = "red";
 
